@@ -8,6 +8,7 @@
 body {
 	margin: 0;
 	font-family: 'Raleway', sans-serif;
+	min-width: 330px;
 }
 
 .container {
@@ -19,15 +20,35 @@ body {
 	width: 100%;
 }
 
-.row:before,
-.row:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
 section {
 	margin-top: 100px;
+}
+
+.scrollTopButton {
+	width: 50px;
+	height: 50px;
+    position: fixed;
+    visibility: hidden;
+    overflow: hidden;
+    z-index: 9999;
+    right: 30px;
+    bottom: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+.scrollTopButton i {
+	font-size: 50px;
+	color: #000;
+}
+
+.scrollTopButton:hover i {
+	color: #444;
+}
+
+.scrollTopButton.show {
+	visibility: visible;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 /* HEADER */
@@ -70,6 +91,11 @@ header > nav > ul > li > a {
     text-decoration: none;
     text-transform: uppercase;
     position: relative;
+}
+
+header > nav > ul > li > a:hover {
+	text-decoration: none;
+	color: #fff;
 }
 
 header > nav > ul > li > a:after {
@@ -306,58 +332,19 @@ header > nav > ul > li > a:hover:after {
 	max-width: 500px;
 }
 
-.quotes p {
-	font-weight: bold;
-	line-height: 21px;
-	font-size: 13px;
+/* Carousel */
+[class*="example"]{
+  min-height:300px;
+  height: 500px;
 }
 
-#carousel {
+.carousel-inner .item h1 {
 	margin: 0 auto;
-	padding: 0;
-	height: 500px;
-	max-width: 820px;
-	overflow: hidden;
-	position: relative;
+	padding: 80px 20px 20px 20px;
 }
 
-#carousel > ul.cites {
-	width: 3795px;
-	list-style: none;
-	position: absolute;
-	margin: 0;
-	padding: 0;
-}
-
-#carousel > ul.cites > li {
-	width: 759px;
-	height: 500px;
-	padding: 70px;
-	float: left;
-}
-
-ul.menu {
-  	text-align: center;
-	padding: 0;
-	margin: 0 auto;
-	position: absolute;
-	bottom: 15%;
-	left: 40%;
-}
-
-ul.menu li {
-	border-radius: 50%;
-	height: 12px;
-	width: 12px;
-	display: inline-block;
-	margin: 0 5px;
-	cursor: pointer;
-	border: 1px solid #fff;
-	background-color: transparent;
-}
-
-ul.menu li.active {
-	background-color: #fff;
+.carousel-inner .item p {
+	text-align: center;
 }
 
 /* SECTION DOWNLOAD */
@@ -425,9 +412,9 @@ footer .info .socials button i {
 	color: #fff;
 }
 
-footer .container-fluid .col-12 {
+footer .container-fluid .col-md-12 {
 	background-color: #313454;
-	height: 94px;
+	
 }
 
 footer .container-fluid p {
@@ -445,41 +432,13 @@ footer .container-fluid a {
 	text-decoration: none;
 	color: #fff;
 }
-/* GRID */
-[class*="col-"] {
-	float: left;
-	min-height: 1px;
-}
 
-.col-1 { width: 8.33%; }
-.col-2 { width: 16.66%; }
-.col-3 { width: 25%; }
-.col-4 { width: 33.33%; }
-.col-5 { width: 41.66%; }
-.col-6 { width: 50%; }
-.col-7 { width: 58.33%; }
-.col-8 { width: 66.66%; }
-.col-9 { width: 75%; }
-.col-10 { width: 83.33% }
-.col-11 { width: 91.66% }
-.col-12 { width: 100%; }
+footer .container-fluid a:hover {
+	color: gold;
+}
 
 /* RWD */
 @media(min-width: 768px) and (max-width: 991px) {
-	/* for tablets */
-	.col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
-
     header > nav > ul > li > a {
     	padding: 0 18px;
     }
@@ -525,6 +484,10 @@ footer .container-fluid a {
 		display: block;
 	}
 
+	section.hero {
+		margin-top: 0;
+	}
+
 	.hero h1 {
     	font-size: 40px;
     	padding: 0 20px;
@@ -541,6 +504,10 @@ footer .container-fluid a {
 
     .team .portrait {
     	margin-top: 50px;
+    }
+
+    .quotes .photo {
+    	background-position: center;
     }
 
     .quotes h1 {

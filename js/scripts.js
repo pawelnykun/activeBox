@@ -1,4 +1,27 @@
 $(function() {
+	//scrollTo#
+	$('a').click(function() {
+		var href = $(this).attr("href");
+    	$('html, body').animate({
+      		scrollTop: $(href).offset().top
+    	}, 500);
+    return false;
+	});
+
+	//scrollTopButton
+	$(window).scroll(function() {
+		if ($(window).scrollTop() > 100) {
+			$('.scrollTopButton').addClass('show');
+		} else {
+			$('.scrollTopButton').removeClass('show');
+		}
+	});
+ 
+	$('.scrollTopButton').click(function() {
+		$('html, body').animate({scrollTop: 0}, 400, 'linear');
+	});
+
+	//Carousel
 	//declaration and initialization of the variables
 	var carousel = $("#carousel");
 	var carouselList = carousel.find("ul.cites");
