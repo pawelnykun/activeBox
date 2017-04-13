@@ -191,6 +191,7 @@ header > nav > ul > li > a:hover:after {
     background-position: 50% 50%;
     transition: 1s;
     overflow: hidden;
+    position: relative;
 }
 
 .pic1 {
@@ -231,13 +232,19 @@ header > nav > ul > li > a:hover:after {
     height: 100%;
     text-align: center;
     color: #fff;
-    padding-top: 30%;
     cursor: pointer;
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .4s;
 }
 
 .gallery .row > div[class*="col-"]:hover > .layer {
-	display: block;
+	display: flex;
 }
 
 /* SECTION TEAM */
@@ -438,6 +445,12 @@ footer .container-fluid a:hover {
 }
 
 /* RWD */
+@media(min-width: 992px) and (max-width: 1199px) {
+	.team .container {
+		margin-left: 30px;
+	}
+}
+
 @media(min-width: 768px) and (max-width: 991px) {
     header > nav > ul > li > a {
     	padding: 0 18px;
